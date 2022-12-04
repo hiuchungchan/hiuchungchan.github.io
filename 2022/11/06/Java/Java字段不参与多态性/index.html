@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>龙口西少女的祈祷</title>
+  <title>Java 字段不参与多态性 | 龙口西少女的祈祷</title>
   <meta name="keywords" content="">
-  <meta name="description" content="龙口西少女的祈祷">
+  <meta name="description" content="Java 字段不参与多态性 | 龙口西少女的祈祷">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="两个例子例子一： 父类： public class Father &amp;#123;     int age;              public Father() &amp;#123;         age &#x3D; 50;     &amp;#125; &amp;#125;   子类： public class Son extends Father &amp;#123;     public Son() &amp;#123;">
 <meta property="og:type" content="article">
@@ -56,7 +56,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/"
    class="avatar_target">
@@ -248,12 +248,51 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-Java/Java字段不参与多态性" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%86%99%E5%8D%9A%E5%AE%A2"><span class="toc-text">为什么写博客</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">对博客的理解</span></a></li></ol></li></ol>
+        <h1 class="article-title">Java 字段不参与多态性</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Java">Java</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2022-12-04 13:28:45'>2022-11-06 00:00</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A4%E4%B8%AA%E4%BE%8B%E5%AD%90"><span class="toc-text">两个例子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90%E4%B8%80%EF%BC%9A"><span class="toc-text">例子一：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90%E4%BA%8C%EF%BC%9A"><span class="toc-text">例子二：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E6%AE%B5%E4%B8%8D%E5%8F%82%E4%B8%8E%E5%A4%9A%E6%80%81%E6%80%A7"><span class="toc-text">字段不参与多态性</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -266,16 +305,88 @@
     }
 </style>
 </div>
-            <h1 id="为什么写博客"><a href="#为什么写博客" class="headerlink" title="为什么写博客"></a>为什么写博客</h1><h2 id="对博客的理解"><a href="#对博客的理解" class="headerlink" title="对博客的理解"></a>对博客的理解</h2><p>最初觉得一个程序员应该有自己的博客，觉得极客范一点，也非常欣赏大佬们的博客。通过博客，可以记录自己的生活和成长的轨迹。它不像微博那样碎片化，也不像微信或者QQ那样关系化，它是私人的空间。</p>
-<p>2022年9月25号开始我写了人生中的第一篇博客(说是博客，不如说是笔记)，想把一些感悟写下来，慢慢积累。也希望自己以后能写的博客不只是技术相关的。</p>
-<p>到目前为止已经写了<code class="article_number"></code>篇文章</p>
-<!-- ， 共<code class="site_word_count"></code>字。 -->
-
-<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
-
-        </article>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="两个例子"><a href="#两个例子" class="headerlink" title="两个例子"></a>两个例子</h3><h4 id="例子一："><a href="#例子一：" class="headerlink" title="例子一："></a>例子一：</h4><ul>
+<li><p>父类：</p>
+<pre><code class="java">public class Father &#123;
+    int age;
         
-        
+    public Father() &#123;
+        age = 50;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li><p>子类：</p>
+<pre><code class="java">public class Son extends Father &#123;
+    public Son() &#123;
+        age = 25;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li><p>多态的创建子类，看看年龄到底是多少：</p>
+<pre><code class="java">public class FieldHasNoPolymorphic &#123;
+    public static void main(String[] args) &#123;
+        Father guy = new Son();
+        System.out.println(&quot;This guy&#39;s age is &quot; + guy.age);
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+<blockquote>
+<p>例子一的输出：<code>This guy&#39;s age is 25</code></p>
+</blockquote>
+<p>很合理对吧？毕竟以前学Java SE的时候，不管是视频还是书里，都是说编译看左边，运行看右边，即父类变量的引用( <code>guy</code> )指向了子类对象( <code>Son</code> )，那么代码访问子类的年龄，自然是输出 <code>25</code></p>
+<h4 id="例子二："><a href="#例子二：" class="headerlink" title="例子二："></a>例子二：</h4><ul>
+<li><p>父类：同例子一</p>
+</li>
+<li><p>子类：</p>
+<pre><code class="java">public class Son extends Father &#123;
+        // 跟例子一相比多声明了一个父类同名字段
+    int age;
+        ...
+&#125;
+</code></pre>
+</li>
+<li><p>同样是多态的创建子类，看看年龄是多少：</p>
+<pre><code class="java">public class FieldHasNoPolymorphic &#123;
+    public static void main(String[] args) &#123;
+        Father guy = new Son();
+        System.out.println(&quot;This guy&#39;s age is &quot; + guy.age);
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+<blockquote>
+<p>例子二的输出：<code>This guy&#39;s age is 50</code></p>
+</blockquote>
+<p>奇怪，明明在子类构造方法中给子类 <code>age</code> 初始化为了 <code>25</code> ，怎么输出是 <code>50</code> ？</p>
+<h3 id="字段不参与多态性"><a href="#字段不参与多态性" class="headerlink" title="字段不参与多态性"></a>字段不参与多态性</h3><blockquote>
+<p>字段永远不会参与多态，当子类声明父类的同名字段时，虽然在子类的内存中两个字段都会存在，但是子类的字段会遮蔽父类的同名字段</p>
+</blockquote>
+<p>什么意思呢？假设将在父类继承而来的 <code>age</code> 字段叫做 <code>ageF</code> ，而子类中声明的 <code>age</code> 字段叫做 <code>ageS</code> ，虽然内存中这两个字段都会存在，但是子类的字段遮蔽了父类的同名字段，所以子类的构造方法中实际上是对 <code>ageS</code> 进行了初始化，但是通过多态创建的子类对象时，<code>guy.age</code> 访问的却是 <code>ageF</code> ，这就是为什么例子二的年龄输出是 <code>50</code> 而不是 <code>25</code>。</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。 </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -284,11 +395,11 @@
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 </body>
